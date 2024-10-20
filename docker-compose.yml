@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  dns2proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: focusbe/dns2proxy:latest
+    container_name: dns2proxy
+    ports:
+      - "5353:53"
+    environment:
+      - UPSTREAM_PROXY=http://192.168.3.80:8445
+    # volumes:
+    #   - ./config/:/etc/dns2proxy/
+    restart: unless-stopped
