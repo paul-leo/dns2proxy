@@ -20,6 +20,8 @@ COPY dnsmasq.conf /etc/dns2proxy/dnsmasq.conf
 
 # 复制glider配置文件
 COPY glider.conf /etc/dns2proxy/glider.conf
+COPY coredns/* /usr/local/bin/coredns/
+RUN chmod +x /usr/local/bin/coredns/coredns
 
 # 复制启动脚本
 COPY start.sh /start.sh

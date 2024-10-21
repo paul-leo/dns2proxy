@@ -1,0 +1,9 @@
+.:53 {
+    file all .
+    transfer example.org example.net {
+        to * 10.240.1.1
+    }
+    forward . 8.8.8.8
+    whoami
+    cache
+}

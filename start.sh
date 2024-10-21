@@ -10,10 +10,6 @@ sed -i "s/CONTAINER_IP/$CONTAINER_IP/g" /etc/dns2proxy/dnsmasq.conf
 sed -i "s|UPSTREAM_PROXY|$UPSTREAM_PROXY|g" /etc/dns2proxy/glider.conf
 # 启动glider
 glider -config /etc/dns2proxy/glider.conf &
-/usr/local/bin/proxy-go/proxy  sps -P $UPSTREAM_PROXY  -p ":443,:80" -q 8.8.8.8:53`;
-# 设置iptables规则
-# iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 8445
-# iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 8445
+cd /usr/local/bin/coredns/ && ./coredns -quiet &
 
-# 启动dnsmasq
-dnsmasq -C /etc/dns2proxy/dnsmasq.conf --no-daemon
+/usr/local/bin/proxy-go/proxy sps -P "http://192.168.3.80:8445" -p ":443,:80" -q 8.8.8.8:53
