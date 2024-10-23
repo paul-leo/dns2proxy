@@ -11,5 +11,4 @@ sed -i "s|UPSTREAM_PROXY|$UPSTREAM_PROXY|g" /etc/dns2proxy/glider.conf
 # 启动glider
 glider -config /etc/dns2proxy/glider.conf &
 cd /usr/local/bin/coredns/ && ./coredns -quiet &
-
-/usr/local/bin/proxy-go/proxy sps -P "http://192.168.3.80:8445" -p ":443,:80" -q 8.8.8.8:53
+/usr/local/bin/proxy-go/proxy sps -P "http://192.168.3.80:8445" -p ":443,:80" -q 223.5.5.5:53

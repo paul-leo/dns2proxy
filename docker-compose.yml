@@ -1,16 +1,34 @@
 version: '3.8'
 
 services:
-  dns2proxy:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: focusbe/dns2proxy:latest
-    container_name: dns2proxy
+  # dns2proxy:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   image: focusbe/dns2proxy:latest
+  #   container_name: dns2proxy
+  #   ports:
+  #     - "53:53/udp"
+  #   environment:
+  #     - UPSTREAM_PROXY=http://192.168.3.80:8445
+  #   # volumes:
+  #   #   - ./config/:/etc/dns2proxy/
+  #   restart: unless-stopped
+  ipsec-vpn-server:
+    image: hwdsl2/ipsec-vpn-server
+    container_name: ipsec-vpn-server
+    env_file:
+      - .env
+    volumes:
+      - ikev2-vpn-data:/etc/ipsec.d
+      # - /lib/modules:/lib/modules:ro
     ports:
-      - "53:53"
-    environment:
-      - UPSTREAM_PROXY=http://192.168.3.80:8445
-    # volumes:
-    #   - ./config/:/etc/dns2proxy/
-    restart: unless-stopped
+      - "500:500/udp"
+      - "4500:4500/udp"
+      - "1701:1701/udp"
+      - "1701:1701/tcp"
+    restart: always
+    privileged: true
+
+volumes:
+  ikev2-vpn-data:

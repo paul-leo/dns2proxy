@@ -1,0 +1,16 @@
+
+
+ipsec-vpn-server  | Server IP: 43.133.233.143
+ipsec-vpn-server  | IPsec PSK: PtpuAtkVEusgXBsdCer8
+ipsec-vpn-server  | Username: vpnuser
+ipsec-vpn-server  | Password: 7LyGN6vUNcBwhbZD
+
+Server IP: 221.239.222.1
+ipsec-vpn-server  | IPsec PSK: PtpuAtkVEusgXBsdCer8
+ipsec-vpn-server  | Username: vpnuser
+ipsec-vpn-server  | Password: 7LyGN6vUNcBwhbZD
+
+ Server IP: 192.168.97.2
+ipsec-vpn-server  | IPsec PSK: PtpuAtkVEusgXBsdCer8
+ipsec-vpn-server  | Username: vpnuser
+ipsec-vpn-server  | Password: 7LyGN6vUNcBwhbZD

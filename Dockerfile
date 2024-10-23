@@ -5,7 +5,7 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 # 设置环境变量
 ENV UPSTREAM_PROXY=
-ENV FORWARD_DNS="8.8.8.8"
+ENV FORWARD_DNS="223.5.5.5"
 
 # 安装必要的软件
 RUN apt-get update && apt-get install -y \

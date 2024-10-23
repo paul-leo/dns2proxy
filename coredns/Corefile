@@ -3,7 +3,7 @@
     transfer example.org example.net {
         to * 10.240.1.1
     }
-    forward . 8.8.8.8
+    forward . 223.5.5.5
     whoami
     cache
 }
